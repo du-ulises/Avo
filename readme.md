@@ -6,11 +6,6 @@
 <h1 align="center">
   Proyecto del Curso: Next.js
 </h1>
-<p align="center">
-  <a href="https://platzi-avo.vercel.app/" target="_blank">
-    https://platzi-avo.vercel.app/
-  </a>
-</p>
 
 - [Cómo trabajar en este proyecto?](#-cómo-trabajar-en-este-proyecto)
 - [Guía rápida](#-gu%C3%ADa-rápida)
