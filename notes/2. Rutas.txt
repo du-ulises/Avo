@@ -1,0 +1,32 @@
+Routing
+
+*Rutas Básicas:
+ - Basado en file system.
+
+*Rutas Dinámicas
+ - [variable].js
+ https://nextjs.org/docs/routing/dynamic-routes
+
+#UnderTheHood
+ *Optmizaciones ocultas en las páginas
+
+ - yarn build
+ - yarn start
+
+CODE SPLITTING - Estrategia de Hash en los Assets para solucionar el tema de caché (Optimización web).
+CHUNKS - Significan cada pedazo o parte mínima que le corresponde a cada pagina en específico.
+
+ *Pre rendering (SSR - Server Side Rendering).
+
+SSR - Sabemos que es SSR cuando al inspeccionar el código de la página, el contenido principal incluye el HTML NO HAY CLIENT SIDE RENDERING.
+SEO - Optimización para buscadores, todo viene prerenderizado desde el servidor y permite que la web sea indexable por los motores de búsqueda (Google).
+
+Link 
+ - Routing en el Client Side (SPA)
+ - Next.JS requiere que dentro del componente de Link se encuentre una etiqueta <a></a>, de forma que sea amigable para el SEO. 
+
+Prefetching automático 
+ - Pre fetching de recursos, pre fetch al servidor del recurso que necesita, antes de que se cargue la página Next Js va intentar cargarla por debajo.
+ - Usar prefetch es recomendable para cargar páginas pesadas, es el mayor propósito. El navegador en últimas tomará la decisión de qué tanto guardar en el prefetch.
+ - Que si los archivos a hacer prefetch son muy pesados, es posible que nunca se realice el prefetch porque nunca acaba.
+ - Es por eso que Next.JS usa un enfoque de múltiples archivos hacerlos portables y pequeños

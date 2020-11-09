@@ -1,0 +1,42 @@
+Instalar NEXTJS
+
+Requisitos
+
+Node (>12,>10)
+Git
+Browser - Goggle Chrome - para utilizar la DevTools
+Instalacion
+
+CLI - Automatica:
+yarn create next-app
+Manual
+mkdir platzi-nextjs
+
+cd platzi-nextjs
+
+npm init -y
+
+yarn add next react react-dom
+npm add next react react-dom
+
+Agregar el siguiente codigo al "script"
+
+"scripts": {
+  "dev": "next",
+  "build": "next build", // build prod
+  "start": "next start" // serv node -prod
+},
+
+> 1er paso
+ctrl + shif + p
+
+> 2do paso - seleccionar lo siguiente:
+change language Mode
+
+> 3er paso - Escribir 
+Javascript React
+
+EXTENSION VSCODE para REACT
+ES7 React/Redux/GraphQL/React-Native snippets
+
+Simple React Snippets
