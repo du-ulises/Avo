@@ -1,0 +1,87 @@
+Extender Next JS
+
+_document.tsx
+
+* Document.
+    - App.
+        - Nuestra Aplicación /pages/.
+
+* Advertencias sobre extender el Document:
+
+    - Ya que el Document se renderiza en servidor, los eventos como onClick no funcionarán.
+    - Los componentes de React fuera de <Main /> no serán inicializados por el navegador. 
+        - No añadir lógica de la aplicación aquí o CSS personalizado (como styled-jsx). 
+        - Si necesita componentes compartidos en todas sus páginas (como un menú o una barra de herramientas).
+    - getInitialPropsfunción de Document no se llama durante las transiciones del lado del cliente, ni cuando una página está optimizada estáticamente.
+
+_app.tsx
+* Providers - Context/Providers, Theme, Data.
+    - En el archivo _app podemos inyectarle anábolicos (providers, themes, props, o cualquier cosa que necesitemos) a toda nuestra aplicación.
+* Layout.
+* Props adicionales.
+
+*Path aliases - JS / TS
+//import hell - dot hell
+
+ctrl+ship+p
+Typescript> Restart TS Server
+
+Si están en Windows sí es necesario que pongan el slash en baseUrl, pero en iOS y Linux no.
+Además, con JavaScript también lo pueden hacer creando el archivo jsconfig.json y poniendo la configuración de la siguiente manera.
+
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@components/*": [
+        "components/*"
+      ]
+    }
+  }
+}
+
+* Built-in CSS Next JS (defecto)
+
+1. Global CSS (.css)
+2. Module CSS (.module.css) - Se aplica para cada componente en específico. 
+    - import styles from './layout.module.css'
+    - nombre diferente a la declaracion de la clase, contiene hash.
+3. CSS-inJS Styled JSX (Nextjs - Vercel)
+    `` Template literal
+    <style jsx>{`
+        .container{
+            background-color: salmon;
+        }
+    `}</style>
+    -Ayuda a no colisionar los nombres de las clases
+
+
+Para los que usamos SCSS o SASS
+
+Debemos instalar las dependencias @zeit/next-sass node-sass
+Crear un archivo con el nombre next.config.js en el root del proyecto
+Pegar dentro del archivo next.config.js* el siguiente código:
+	const withSass = require('@zeit/next-sass')
+	module.exports = withSass({
+		cssModules: true
+	})
+Esto funciona para estilos globales y modulares.
+
+Adicional a esto, si quieren importar fuentes locales a su proyecto:
+
+Debemos instalar la dependencia npm install --save nextjs-fonts
+Dentro del archivo next.config.js escribir el siguiente código
+const withSass = require('@zeit/next-sass');
+const withFonts = require('nextjs-fonts');
+
+module.exports = withSass(withFonts({
+  webpack(config, options) {
+   return config;
+  },
+}));
+Esto implementará Sass y fuentes locales.
+
+Para el acceso a recursos estáticos como las imágenes, es necesario crear una carpeta Public en la raíz del proyecto. Es importante que tenga ese nombre para que Next lo reconozca.
+
+useEffect es el hook que se usa por defecto en react para manejar que se ejecuta cuando el componente se acaba de monar del lado del cliente minetras que getServersidePops se ejecuta en el lado del servidor.
+UseEffect te puede servir cuando los requerimentos del SEO te lo permitan. Por otra parte si sabes que la respuesta vaa tardar en cargarse puedes usar useEffect para que mostrar algun loader mientras recibes la información.

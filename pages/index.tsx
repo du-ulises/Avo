@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import Head from 'next/head'
-import Navbar from '../components/Navbar/Navbar'
+import React, { useState, useEffect } from 'react'
+import Layout from '@components/Layout/Layout'
+import KawaiiHeader from '@components/KawaiiHeader/KawaiiHeader'
+import ProductList from '@components/ProductList/ProductList'
 
 const HomePage = () => {
   const [productList, setProductList] = useState<TProduct[]>([])
@@ -9,23 +10,16 @@ const HomePage = () => {
     window
       .fetch('/api/avo')
       .then((response) => response.json())
-      .then(({ data, length }) => {
+      .then(({ data }: TAPIAvoResponse) => {
         setProductList(data)
       })
   }, [])
 
   return (
-    <div>
-      <Head>
-        <title>Avo</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <Navbar />
-      <div>Platzi and Next.js!</div>
-      {productList.map((product) => (
-        <div key={product.id}>{product.name}</div>
-      ))}
-    </div>
+    <Layout>
+      <KawaiiHeader />
+      <ProductList products={productList} />
+    </Layout>
   )
 }
 

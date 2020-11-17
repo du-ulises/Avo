@@ -1,10 +1,10 @@
 {
-  "name": "avo",
+  "name": "Avo",
   "version": "1.0.0",
-  "description": "",
+  "description": "Curso de Next JS",
   "main": "index.js",
   "scripts": {
-    "dev": "NODE_OPTIONS='--inspect' next",
+    "dev": "next",
     "build": "next build",
     "start": "next start",
     "type-check": "tsc --noEmit"
@@ -13,9 +13,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/cors": "^2.8.6",
+    "cors": "^2.8.5",
+    "isomorphic-unfetch": "^3.1.0",
     "next": "^10.0.1",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^2.0.1"
   },
   "devDependencies": {
     "@types/node": "^14.0.5",
@@ -33,7 +38,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged && yarn type-check"
+      "pre-commit": "pretty-quick --staged",
+      "pre-push": "yarn type-check"
     }
   }
 }
