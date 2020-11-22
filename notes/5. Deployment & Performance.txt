@@ -1,0 +1,7 @@
+Hace un par de días salió Next.js 10 y uno de sus flagship features es una herramienta mucho más robusta de analytics. 😄 https://nextjs.org/analytics
+
+//analytics - calibre
+
+Next.JS utiliza la misma librería de LightHouse para calcular esos datos así que no debería haber diferencia.
+
+NextJS solo lo hace más fácil para tener los datos en JavaScript y poder enviarlos a otros servicios como Google Analytics
